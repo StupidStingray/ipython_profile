@@ -4,15 +4,15 @@ import re
 @register_line_magic
 def runcell(line):
     """
-    usage: %runcell <cell title> <filename>
+    usage: %runcell <filename> <cell title> 
     runs cell (marked by '#%% <title>') inside <filename>.
     """
     parts = line.split(maxsplit = 1)
     if len(parts) != 2:
-        print("Usage: %runcell <cell_title> <filename>")
+        print("Usage: %runcell <filename>  <cell_title> ")
         return
 
-    cell_title, filename = parts
+    filename, cell_title = parts
     with open(filename, 'r', encoding = 'utf-8') as f:
         code = f.read()
 
